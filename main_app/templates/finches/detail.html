@@ -20,21 +20,22 @@
 
 {% block content %}
 
-<section class="cat-container">
-  <div class="cat-img">
+<section class="finch-container">
+  <div class="finch-img">
     <img 
-      src="{% static 'images/sk8r-boi-cat.svg' %}" 
-      alt="A skater boy cat"
+      height="100px"
+      src="{% static 'images/finch_skater.jpeg' %}" 
+      alt="A skater boy finch"
     >
   </div>
   <h2 class="card-title">{{ finch.name }}</h2>
-    {% comment %} {% if finch.age > 0 %} {% endcomment %}
+    {% if finch.age > 0 %}
       <p>A {{ finch.color }} {{ finch.species }}</p>
-    {% comment %} {% else %} {% endcomment %}
-      {% comment %} <p>A {{ finch.species }} kitten.</p> {% endcomment %}
-    {% comment %} {% endif %} {% endcomment %}
+    {% else %}
+      <p>A {{ finch.species }} hatchling.</p>
+    {% endif %}
     <p><small>{{ finch.description }}</small></p>
-    <div class="cat-actions">
+    <div class="finch-actions">
       <a href="{% url 'finches_update' finch.id %}" class="btn warn">Edit</a>
       <a href="{% url 'finches_delete' finch.id %}" class="btn danger">Delete</a>
     </div>
@@ -44,18 +45,6 @@
   <section class="feedings">
     <div class="subsection-title">
       <h2>Feedings</h2>
-      <img 
-        src="{% static 'images/cat-cone.svg' %}" 
-        alt="An ice cream cone cat"
-      />
-      <img 
-        src="{% static 'images/cat-onigiri.svg' %}"
-        alt="A cat as onigiri"
-      />
-      <img 
-        src="{% static 'images/kitty-kabob.svg' %}" 
-        alt="A kabob of kittens"
-      />
     </div>
     <h3>Add a Feeding</h3>
     <form
@@ -94,9 +83,6 @@
   <section class="toys">
     <div class="subsection-title">
       <h2>Toys</h2>
-      <img src="{% static 'images/string.svg' %}" alt="A ball of string" />
-      <img src="{% static 'images/mouse.svg' %}" alt="A mouse" />
-      <img src="{% static 'images/fish.svg' %}" alt="A fishy toy" />
     </div>
     <h3>{{ finch.name }}'s Toys</h3>
     <div class="subsection-content">
